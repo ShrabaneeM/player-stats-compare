@@ -1,0 +1,24 @@
+{
+  "name": "player-stats-compare",
+  "version": "1.0.0",
+  "description": "Player stats compare server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShrabaneeM/player-stats-compare.git"
+  },
+  "author": "“Shrabanee <shrabaneemshr76@gmail.com> (https://github.com/ShrabaneeM)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShrabaneeM/player-stats-compare/issues"
+  },
+  "homepage": "https://github.com/ShrabaneeM/player-stats-compare#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.13"
+  }
+}
