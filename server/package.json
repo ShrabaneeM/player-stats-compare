@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/ShrabaneeM/player-stats-compare#readme",
   "dependencies": {
+    "apollo-server-express": "^2.9.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.4",
     "mongoose": "^5.6.13"
   }
 }

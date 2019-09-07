@@ -1,0 +1,18 @@
+<table class="col-md-12 table height-100">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let player of players | async">
+      <td>
+        <input type="checkbox">
+      </td>
+      <td>{{player.id}}</td>
+      <td>{{player.name}}</td>
+    </tr>
+  </tbody>
+</table>
