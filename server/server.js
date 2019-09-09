@@ -15,8 +15,8 @@ const { typeDefs } = require("./typeDefs");
 
 const schema = typeDefs, 
 
-getPlayer = async function(args) {
-    return await Player.find(args.id)
+getPlayer = async function(_, req) {
+    return await Player.find({_id : {$in : req.body.variables.ids}});
 }, 
 
 getPlayers = async function() {

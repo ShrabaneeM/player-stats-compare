@@ -13,7 +13,4 @@ export type Players = {
         sixes
         highestScore
       }
-  }
-  export type Query = {
-      allPlayers: Players[];
-  }
+  };

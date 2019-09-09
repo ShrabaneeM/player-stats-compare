@@ -4,7 +4,7 @@ const graphql = require('graphql');
 const typeDefs = graphql.buildSchema(`
 type Query {
     allPlayers: [Player!]!
-    getPlayer : [Player!]!
+    getPlayer(id : [ID]) : [Player!]!
 }
 type Player {
     id: ID!

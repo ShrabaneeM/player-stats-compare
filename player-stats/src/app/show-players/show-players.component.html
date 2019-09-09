@@ -9,10 +9,40 @@
   <tbody>
     <tr *ngFor = "let player of players | async">
       <td>
-        <input type="checkbox">
+        <input [value] = "player.id" type="checkbox" (change)="onChange(player.id)">
       </td>
       <td>{{player.id}}</td>
       <td>{{player.name}}</td>
+    </tr>
+  </tbody>
+</table>
+<br/>
+<button (click) = "getPlayerById('5d7264ca5da3502f62239e68')">Compare</button>
+<br>
+<table class="col-md-12 table height-100" *ngIf = "playersToCompare">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col" *ngFor = "let stat of playerStats">{{stat}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let player of playersToCompare; let i=index;">
+      <td>
+       {{i}}
+      </td>
+      <td>{{player.name}}</td>
+      <td>{{player.stats.matches}}</td>
+      <td>{{player.stats.bats}}</td>
+      <td>{{player.stats.bowls}}</td>
+      <td>{{player.stats.innings}}</td>
+      <td>{{player.stats.notouts}}</td>
+      <td>{{player.stats.fiftys}}</td>
+      <td>{{player.stats.hundreds}}</td>
+      <td>{{player.stats.fours}}</td>
+      <td>{{player.stats.sixes}}</td>
+      <td>{{player.stats.highestScore}}</td>
     </tr>
   </tbody>
 </table>
