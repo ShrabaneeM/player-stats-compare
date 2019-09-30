@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 import { Players } from '../types';
 import { AllPlayerQueryResponse, AllPlayerQuery, GetPlayerQuery } from '../graphql';
 @Component({
+  
   selector: 'app-show-players',
   templateUrl: './show-players.component.html',
   styleUrls: ['./show-players.component.css']

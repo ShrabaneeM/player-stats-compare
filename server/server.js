@@ -1,32 +1,23 @@
 const express_graphql = require('express-graphql');
+const makeExecutableSchema = require('graphql-tools').makeExecutableSchema;
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 
 const config = require('./config');
-const Player =  require("./player.model");
 
 app.use(cors());
 app.options('*', cors())
 
 const playerRoute = require('./player.routes');
 const { typeDefs } = require("./typeDefs");
+const { resolvers } = require('./resolvers');
 
-const schema = typeDefs, 
-
-getPlayer = async function(_, req) {
-    return await Player.find({_id : {$in : req.body.variables.ids}});
-}, 
-
-getPlayers = async function() {
-    return await Player.find({})
-},
-
-root = {
-    allPlayers: getPlayers,
-    getPlayer: getPlayer
-};
+const executableSchema = makeExecutableSchema({
+    typeDefs,
+    resolvers,
+});
 
 mongoose.connect(config.DB_URL, {useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true }, (err) => {
     if(err){
@@ -44,8 +35,7 @@ app.use(express.urlencoded({extended: false}));
 app.use('/player', playerRoute);
 
 app.use('/graphql', express_graphql({
-    schema: schema,
-    rootValue: root,
+    schema: executableSchema,
     graphiql: true
 }));
 
